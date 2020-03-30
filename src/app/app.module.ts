@@ -10,13 +10,17 @@ import { reducers, initialState, effects } from './app.state';
 import { ItemService } from './box/item/item.service';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { TrainComponent } from './train/train.component';
+import { PassengerComponent } from './train/passenger/passenger.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         BoxComponent,
-        ItemComponent
+        ItemComponent,
+        TrainComponent,
+        PassengerComponent
     ],
     imports: [
         BrowserModule,

@@ -26,7 +26,7 @@ export class BoxComponent implements OnInit {
             this._store.dispatch(new ItemActions.ListItem(
                 res.results.map((row: any) =>  {
                     return {
-                        id: Math.ceil(Math.random() * 10),
+                        id: Math.ceil(Math.random() * 100),
                         name: row.name.first + ' ' + row.name.last,
                         qnty: 1
                     }
@@ -42,7 +42,7 @@ export class BoxComponent implements OnInit {
     public addItem() {
         this._store.dispatch(new ItemActions.AddItem(
             { 
-                id: Math.ceil(Math.random() * 10), 
+                id: Math.ceil(Math.random() * 100), 
                 name: 'Some item name', 
                 qnty: 1 
             }

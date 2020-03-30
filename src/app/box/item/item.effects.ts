@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, ofType, Effect } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { map, switchMap, mergeMap, catchError } from 'rxjs/operators';
+import { map, switchMap, catchError } from 'rxjs/operators';
 import { ItemService } from './item.service';
 import * as ItemActions from './item.actions';
 
@@ -27,14 +27,8 @@ export class ItemEffects {
          * to connect with correct acton type
          */
         ofType(ItemActions.INIT_RAND_ITEM_QNTY),
-
-
-        /**
-         * calling randomuser api
-         */
         switchMap((action: ItemActions.InitRandItemQnty): any => {
-
-            // console.log('action', action);
+            
             
             return this._itemService.randomizeItemQnty().pipe(
                 map((res: any) => new ItemActions.DoneRandItemQnty(res))
