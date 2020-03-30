@@ -1,4 +1,3 @@
-
 export interface Passenger {
     id: number;
     name: string;
@@ -6,6 +5,3 @@ export interface Passenger {
     gender?: string;
     seatNumber?: number
 }
-
-
-// export const defaultPassenger: Passenger = {} as Passenger;

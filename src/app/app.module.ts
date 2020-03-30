@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { TrainComponent } from './train/train.component';
 import { PassengerComponent } from './train/passenger/passenger.component';
+import { PassengerDetailsComponent } from './train/passenger/details/details.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PassengerComponent } from './train/passenger/passenger.component';
         BoxComponent,
         ItemComponent,
         TrainComponent,
-        PassengerComponent
+        PassengerComponent,
+        PassengerDetailsComponent
     ],
     imports: [
         BrowserModule,

@@ -1,13 +1,22 @@
-<p>Passengers!</p>
+<h2>Passengers!</h2>
 
 
 <table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>...</th>
+    </tr>
     <ng-container *ngFor="let row of passengers | async">
         <tr>
             <td><span>{{ row.id }}</span></td>
             <td><span>{{ row.name }}</span></td>
             <td><span>{{ row.age }}</span></td>
-            <td><button (click)="removeOnePassenger(row.id)">Delete</button></td>
+            <td>
+                <button (click)="passengerDetails(row.id)">Details</button>
+                <button (click)="removeOnePassenger(row.id)">Delete</button>
+            </td>
         </tr>
     </ng-container>
 </table>

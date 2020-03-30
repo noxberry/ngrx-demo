@@ -21,9 +21,6 @@ export class PassengerEffects {
     public passengerList$ = this._actions$.pipe(
 
 
-        /**
-         * to connect with correct acton type
-         */
         ofType(PassengerActions.PASSENGER_LIST_LOAD),
         switchMap((): any => {
             
@@ -32,7 +29,7 @@ export class PassengerEffects {
                 map((res: any) => new PassengerActions.PassengerListDone(
                     res.results.map((row: any) => {
                         return {
-                            id: Math.ceil(Math.random() * 100),
+                            id: this._uniqueID(),
                             name: row.name.first + ' ' + row.name.last,
                             age: Math.ceil(Math.random() * 100),
                             seatNumber: Math.ceil(Math.random() * 100)
@@ -42,4 +39,9 @@ export class PassengerEffects {
             )
         })
     );
+
+
+    private _uniqueID() {
+        return Math.floor(Math.random() * Date.now())
+    }
 }

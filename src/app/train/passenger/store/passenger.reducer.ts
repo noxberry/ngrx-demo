@@ -16,6 +16,20 @@ export function passengerReducer(
          */
         case PassengerActions.PASSENGER_LIST_DONE:
             return state.concat(action.payload);
+
+
+        /**
+         * add one passenger
+         */
+        case PassengerActions.PASSENGER_ADD:
+            return [...state, action.payload];
+
+
+        /**
+         * remove one passenger
+         */
+        case PassengerActions.PASSENGER_REMOVE:
+            return state.filter(row => row.id != action.payload);
         
 
         default:
