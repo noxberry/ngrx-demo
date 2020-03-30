@@ -1,0 +1,13 @@
+<p>item works!</p>
+
+
+<table>
+    <ng-container *ngFor="let item of items | async">
+        <tr>
+            <td><span>{{ item.id }}</span></td>
+            <td><span>{{ item.name }}</span></td>
+            <td><span>{{ item.qnty }}</span></td>
+            <td><button (click)="removeItem(item.id)">Delete</button></td>
+        </tr>
+    </ng-container>
+</table>
