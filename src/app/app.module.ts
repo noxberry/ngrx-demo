@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, initialState, effects } from './app.state';
 import { ItemService } from './box/item/item.service';
 import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import { EffectsModule } from '@ngrx/effects';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
+        
         StoreModule.forRoot(reducers, {initialState}),
         StoreDevtoolsModule.instrument({
             maxAge: 25

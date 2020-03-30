@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import * as ItemActions from './item/item.actions';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,18 +16,23 @@ export class BoxComponent implements OnInit {
 
 
     constructor(
-        private _store: Store<AppState>
+        private _store: Store<AppState>,
+        private _http: HttpClient
     ) {}
 
 
     ngOnInit(): void {
-        this._store.dispatch(new ItemActions.ListItem([
-            { id: 11, name: 'Listed item', qnty: 1},
-            { id: 12, name: 'Listed item', qnty: 1},
-            { id: 14, name: 'Listed item', qnty: 1},
-            { id: 15, name: 'Listed item', qnty: 1},
-            { id: 16, name: 'Listed item', qnty: 1}
-        ]));
+        this._http.get('https://randomuser.me/api/?nat=us&results=7').subscribe((res: any) => {
+            this._store.dispatch(new ItemActions.ListItem(
+                res.results.map((row: any) =>  {
+                    return {
+                        id: Math.ceil(Math.random() * 10),
+                        name: row.name.first + ' ' + row.name.last,
+                        qnty: 1
+                    }
+                })    
+            ));
+        })
     }
 
 
