@@ -2,8 +2,6 @@ import { Passenger } from "./passenger.interface";
 import * as PassengerActions from './passenger.actions';
 
 
-
-
 export function passengerReducer(
     state: Passenger[] = [], 
     action: PassengerActions.Actions

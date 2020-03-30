@@ -14,8 +14,7 @@ import * as PassengerActions from './passenger/store/passenger.actions';
 
 export class TrainComponent implements OnInit {
     
-
-
+    
     constructor(
         private _http: HttpClient,
         private _store: Store<AppState>
