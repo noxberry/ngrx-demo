@@ -6,6 +6,11 @@ import { PassengerDetailsComponent } from './train/passenger/details/details.com
 
 
 const routes: Routes = [
+    { 
+        path: '', 
+        redirectTo: 'train', 
+        pathMatch: 'full' 
+    },
     {
         path: 'box',
         component: BoxComponent
