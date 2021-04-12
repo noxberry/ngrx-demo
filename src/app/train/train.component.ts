@@ -27,7 +27,7 @@ export class TrainComponent implements OnInit {
 
 
     public addOnePassenger() {
-        this._http.get('https://randomuser.me/api/?nat=us&results=1').subscribe((res: any) => {
+        this._http.get<any>('https://randomuser.me/api/?nat=us&results=1').subscribe((res: any) => {
             if (res.hasOwnProperty('results')) {
                 this._store.dispatch( new PassengerActions.PassengerAdd(
                     res.results.map((row: any) => {
